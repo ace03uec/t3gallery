@@ -2,6 +2,7 @@
 
 - [X] Make it deploy
 - [X] Scaffold basic ui with mock data
+- [X] Tidy up build process
 - [] Actually set up a db
 - [] Attach db to UI
 - [] Add authentication (w/clerk)
