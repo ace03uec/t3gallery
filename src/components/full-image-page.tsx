@@ -1,12 +1,13 @@
 import { clerkClient } from "@clerk/nextjs/server";
 import { getImage, deleteImage } from "~/server/queries";
 import { Button } from "./ui/button";
-import { revalidatePath } from "next/cache";
-import { permanentRedirect, redirect, RedirectType } from "next/navigation";
+import { redirect, RedirectType } from "next/navigation";
 
-export default async function FullPageImageView(props: { id: number }) {
-  const image = await getImage(props.id);
+export default async function FullPageImageView(props: { id: string }) {
+  const idAsNumber = Number(props.id);
+  if (isNaN(idAsNumber)) throw new Error("Invalid photo id");
 
+  const image = await getImage(idAsNumber);
   const client = await clerkClient();
   const ulinfo = await client.users.getUser(image.userId);
 
@@ -30,8 +31,7 @@ export default async function FullPageImageView(props: { id: number }) {
           <form
             action={async () => {
               "use server";
-              await deleteImage(props.id);
-              redirect("/", RedirectType.push);
+              await deleteImage(idAsNumber);
             }}
           >
             <Button type="submit" variant="destructive">

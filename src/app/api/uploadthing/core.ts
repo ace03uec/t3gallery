@@ -1,5 +1,5 @@
 import { createUploadthing, type FileRouter } from "uploadthing/next";
-import { auth } from "@clerk/nextjs/server";
+import { auth, clerkClient } from "@clerk/nextjs/server";
 import { images } from "~/server/db/schema";
 import { db } from "~/server/db";
 import { ratelimit } from "~/server/ratelimit";
@@ -17,6 +17,12 @@ export const ourFileRouter = {
 
       // If you throw, the user will not be able to upload
       if (!user.userId) throw new Error("Unauthorized")
+
+      const fullUserData = await (await clerkClient()).users.getUser(user.userId);
+
+      if ((fullUserData).privateMetadata?.["can-update"]) {
+        throw new Error("User doesn't have upload permission.")
+      }
 
       const { success } = await ratelimit.limit(user.userId);
 

@@ -5,6 +5,7 @@ import { auth } from "@clerk/nextjs/server";
 import { images } from "./db/schema";
 import { and, eq } from "drizzle-orm";
 import analyticsServerClient from "./analytics";
+import { redirect, RedirectType } from "next/navigation";
 
 
 export async function getMyImages() {
@@ -52,5 +53,7 @@ export async function deleteImage(id: number) {
             imageId: id,
         }
     })
+
+    redirect("/");
 }
 
