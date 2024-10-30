@@ -1,4 +1,6 @@
 import "~/styles/globals.css";
+import "@uploadthing/react/styles.css";
+
 import { TopNav } from "~/app/_components/topnav";
 
 import { ClerkProvider, SignInButton, SignedIn, SignedOut, UserButton } from '@clerk/nextjs'
