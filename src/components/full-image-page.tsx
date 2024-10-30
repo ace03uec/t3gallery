@@ -1,4 +1,4 @@
-import { createClerkClient, clerkClient } from "@clerk/nextjs/server";
+import { clerkClient } from "@clerk/nextjs/server";
 import { getImage } from "~/server/queries"
 
 export default async function FullPageImageView(props: {id: number}) {
