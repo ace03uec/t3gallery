@@ -1,6 +1,11 @@
 {
-    "typescript.tsdk": "node_modules/typescript/lib"
-    // "editor.codeActionsOnSave": {
-    //     "source.fixAll": "always",
-    // }
+  "typescript.tsdk": "node_modules/typescript/lib",
+  "editor.formatOnSave": true,
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": "always"
+  }
+  // "editor.codeActionsOnSave": {
+  //     "source.fixAll": "always",
+  // }
 }
