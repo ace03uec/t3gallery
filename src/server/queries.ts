@@ -53,7 +53,5 @@ export async function deleteImage(id: number) {
             imageId: id,
         }
     })
-
-    redirect("/");
 }
 

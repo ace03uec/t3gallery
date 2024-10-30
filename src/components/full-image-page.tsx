@@ -32,10 +32,24 @@ export default async function FullPageImageView(props: { id: string }) {
             action={async () => {
               "use server";
               await deleteImage(idAsNumber);
+              redirect("../");
             }}
           >
             <Button type="submit" variant="destructive">
               Delete
+            </Button>
+          </form>
+        </div>
+        <div className="flex flex-col p-2">
+          <form
+            action={async () => {
+              "use server";
+              console.log("touched go home");
+              redirect("../");
+            }}
+          >
+            <Button type="submit" variant="default">
+              Go Home
             </Button>
           </form>
         </div>
