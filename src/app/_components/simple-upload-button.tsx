@@ -85,12 +85,19 @@ export function SimpleUploadButton() {
         </div>,
         {
           duration: 10000000,
-          id: "upload-toast",
+          id: "upload-begin",
         },
       );
     },
+    onUploadError(error) {
+      posthog.capture("upload_error", {
+        error,
+      });
+      toast.dismiss("upload-begin");
+      toast.error("Error uploading image");
+    },
     onClientUploadComplete() {
-      toast.dismiss("upload-toast");
+      toast.dismiss("upload-begin");
       toast.success("Image uploaded successfully");
       router.refresh();
     },
