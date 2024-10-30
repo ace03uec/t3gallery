@@ -3,7 +3,7 @@ import { getImage } from "~/server/queries"
 export default async function FullPageImageView(props: {id: number}) {
     const image = await getImage(props.id)
 
-    return <div className="flex w-full h-full bg-green-500 min-w-0">
+    return <div className="flex w-full h-full min-w-0">
             <div className="flex-shrink flex justify-center items-center">
             <img className="object-contain" src={image.url} alt={image.name} />
             </div>
