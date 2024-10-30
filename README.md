@@ -14,3 +14,9 @@
 - [] Delete button (w/Server actions)
 - [] Analytics (posthog)
 - [] Ratelimiting (upstash)
+- [] Read the below blog posts
+
+READ THESE
+https://nextjs.org/blog/security-nextjs-server-components-actions
+
+https://www.freecodecamp.org/news/best-practices-for-security-of-your-react-js-application/
