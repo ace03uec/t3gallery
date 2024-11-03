@@ -45,7 +45,7 @@ export default async function FullPageImageView(props: { id: string }) {
             action={async () => {
               "use server";
               console.log("touched go home");
-              redirect("../");
+              redirect("/");
             }}
           >
             <Button type="submit" variant="default">
